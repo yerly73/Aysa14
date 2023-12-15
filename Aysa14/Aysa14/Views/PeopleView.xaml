@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aysa14.Views.PeopleView">
+    <ContentPage.Content>
+        <StackLayout>
+            <DatePicker Date="{Binding Fecha}"></DatePicker>
+            <Entry Placeholder="Enter Cliente" HorizontalOptions="FillAndExpand" Text="{Binding Cliente}" />
+            <Entry Placeholder="Enter Total"  HorizontalOptions="FillAndExpand" Text="{Binding Total}" />
+            <Entry Placeholder="Enter Vendedor"  HorizontalOptions="FillAndExpand" Text="{Binding Vendedor}" />
+
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Save" Command="{Binding Save}"/>
+                <Button Text="Show" Command="{Binding Show}"/>
+
+            </StackLayout>
+
+            <Entry Placeholder="Filter" Text="{Binding Filter}" HorizontalOptions="FillAndExpand"></Entry>
+
+
+            <ListView x:Name="LvPeople" ItemsSource="{Binding People}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Fecha}"></Label>
+                                <Label Text="{Binding Cliente}"></Label>
+                                <Label Text="{Binding Total}"></Label>
+                                <Label Text="{Binding Vendedor}"></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
